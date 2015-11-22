@@ -1,5 +1,8 @@
+#!/usr/bin/python
+# Filename: crawling.py
 import re
 import urllib2
+import urlparse
 def download(url, user_agent='wswp', num_retries=2):
     print 'Downloading:', url
     headers = {'User-agent': user_agent}
@@ -24,6 +27,7 @@ def link_crawler(seed_url, link_regex):
         # filter for links matching our regular expression
         for link in get_links(html):
             if re.match(link_regex, link):
+		link = urlparse.urljoin(seed_url, link)
                 crawl_queue.append(link)
 
 def get_links(html):
