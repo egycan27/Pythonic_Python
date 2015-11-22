@@ -1,1 +1,4 @@
-.bundle\n.sass-cache\n.vendor\n_site
+.bundle
+.sass-cache
+.vendor
+_site
